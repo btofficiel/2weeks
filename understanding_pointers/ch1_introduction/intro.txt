@@ -23,4 +23,38 @@ Pointers
 xxxxxxxxxxxxx
 xxxxxxxxxxxxx
 
+-------
+Lvalues
+-------
 
+// Lvalues refers to the operand found on the left side of the assignment operator.
+
+// Lvalue refers to a storage location
+
+// All lvalues are modifiable
+
+xxxxxxxxxxxx
+xxxxxxxxxxxx
+
+
+---------------
+Concept of NULL
+---------------
+
+// When NULL is assigned to a pointer it means the pointer points to nothing.
+
+// Two null pointers will always be equal.
+
+// The NULL macro is a constant integer zero cast to a pointer as follows:-
+// #define NULL (((void *)0)
+
+// ASCII NUL is defined as a byte containing all zeros
+
+// NULL should not be used in contexts other than pointers
+
+// A pointer to void is a general purpose pointer used to hold references to any data type.
+
+// Pointers to void are used for data pointers, not function pointers.
+
+
+// Both global and static pointers exist till the program terminates but static pointers' scope is limited to the block they are declared in.
