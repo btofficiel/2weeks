@@ -1,0 +1,26 @@
+---------------------
+Three types of memory
+---------------------
+| Static | -> allocated when program starts and remains in existence until it terminates. Scope limited to defining function.
+
+| Automatic | -> Created when a function is called. Lifetime limited till function is executing.
+
+| Dynamic | -> Allocated from heap and can be released. 
+
+^Ref -> Table 1.1
+
+xxxxxxxxxxxxx
+xxxxxxxxxxxxx
+
+--------
+Pointers
+--------
+
+// A pointer variable contains the address in memory of another variable, object , or function. 
+
+// Nothing inherent in a pointer indicates what type of data the pointer is referencing
+
+xxxxxxxxxxxxx
+xxxxxxxxxxxxx
+
+
