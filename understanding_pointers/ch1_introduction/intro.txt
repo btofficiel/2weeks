@@ -56,5 +56,41 @@ Concept of NULL
 
 // Pointers to void are used for data pointers, not function pointers.
 
-
 // Both global and static pointers exist till the program terminates but static pointers' scope is limited to the block they are declared in.
+
+xxxxxxxxxxxxx
+xxxxxxxxxxxxx
+
+----------------------
+Pointer Size and Types
+----------------------
+
+// On most modern platforms, size of a pointer to data remains same regardless of type
+
+// Size of a pointer to a function may differ from size of a pointer to data
+
+// size_t -> safe type of sizes
+    # ptrdiff_t diff = ptr2 - ptr1;
+    # ^ The above would tell how many elements between the two pointers.
+    # size_t is an unsigned int and represents max size of any object in C.
+    # Format specifiers for printing are %u and %lu (long unsigned integer)
+
+// ptrdiff_t -> To handle pointer arithmetic
+
+// intptr_t and uintptr_t -> To store pointer addresses
+
+// Avoid casting pointer to an int as in case of 64-bit pointers, the information will be lost if the integer was only four bytes.
+
+
+xxxxxxxxxxxxx
+xxxxxxxxxxxxx
+
+----------------------
+Constants and Pointers
+----------------------
+
+// A pointer to constant cannot modify the value it is referencing.
+
+xxxxxxxxxxxxx
+xxxxxxxxxxxxx
+
