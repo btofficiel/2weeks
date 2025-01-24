@@ -1,0 +1,12 @@
+------------------------------
+Dynamic Memory allocation in C
+------------------------------
+ -> Use a malloc type fucntion to allocate memory.
+ -> Use this memory to support the application.
+ -> Deallocate the memory using free function.
+ 
+
+ // When memory is allocated, additional information is stored in a data structure which contains block size and other data.
+
+ xxxxxxxxxxxxxxxxxxxx
+ xxxxxxxxxxxxxxxxxxxx
