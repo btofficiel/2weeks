@@ -10,3 +10,24 @@ Dynamic Memory allocation in C
 
  xxxxxxxxxxxxxxxxxxxx
  xxxxxxxxxxxxxxxxxxxx
+
+------------
+Memory leaks
+------------
+-> The memory's address is lost.
+-> The free fucntion is never invoked though it should be (sometimes called a hidden leak).
+
+xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx
+
+-----------------------------------
+Dynamic Memory Allocation Functions
+-----------------------------------
+
+| malloc | -> Allocates memory from heap
+| realloc | -> Reallocates memory to a larger or smaller amount based on a previously allocated block of memory
+| calloc | -> Allocates and zeros out memory from the heap
+| free | -> Returns a block of memory to the heap
+
+xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx
