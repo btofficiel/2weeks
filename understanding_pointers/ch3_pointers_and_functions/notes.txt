@@ -1,0 +1,14 @@
+-----------------------------
+Organization of a stack frame
+-----------------------------
+
+| Return address | -> The address in the program where the function is supposed to return upon completion
+
+| Storage for local data | -> Memory allocated for local variables
+
+| Storage for parameters | -> Memory allocated for function's parameters
+
+| Stack and base pointers | -> Pointers used by the runtime to manage the stack
+
+xxxxxxxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxx
