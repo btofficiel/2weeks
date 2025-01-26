@@ -31,3 +31,9 @@ Dynamic Memory Allocation Functions
 
 xxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxx
+
+----------------
+Dangling Pointer
+----------------
+
+// A pointer which references the original memory even after it has been freed.
