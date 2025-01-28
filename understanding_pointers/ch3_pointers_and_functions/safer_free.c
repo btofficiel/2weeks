@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define safeFree(p) saferFree((void**)&(p))
+
 void saferFree(void **pp) {
     if(pp != NULL && *pp != NULL) {
         free(*pp);
@@ -15,7 +17,7 @@ int main() {
 
     printf("Value before saferFree: %d\n", *num);
 
-    saferFree(&num);
+    safeFree(num);
 
     // Will print OxO which is a valid NULL value
     printf("Address after saferFree: %p\n", num);
