@@ -15,5 +15,13 @@ int main() {
     printf("Value: %s\n", header2);
     printf("Value: %s\n", header_ptr);
 
+    char *header_input;
+    printf("Enter a value: ");
+    scanf("%s", header_input);
+
+    printf("Input: %s\n", header_input);
+
+    free(header_ptr);
+
     return 0;
 } 
