@@ -84,6 +84,10 @@ int main() {
     addTail(&list, emp3);
     addHead(&list, emp1);
     
+    // Will print
+    // Ek, 1
+    // -> Do, 2
+    // -> Teen, 3
     displayList(&list);
 
     return 0;
