@@ -82,10 +82,8 @@ void do_one_thing(int *pnum_times) {
 
     for(i = 0; i < 4; i++) {
         printf("doing one thing\n");
-        for(j=0; j < 10000; j++) {
-            x = x+i;
-            (*pnum_times)++;
-        }
+        for(j=0; j < 10000; j++) x = x+i;
+        (*pnum_times)++;
     }
 }
 
@@ -94,10 +92,8 @@ void do_another_thing(int *pnum_times) {
 
     for(i = 0; i < 4; i++) {
         printf("doing another thing\n");
-        for(j=0; j < 10000; j++) {
-            x = x+i;
-            (*pnum_times)++;
-        }
+        for(j=0; j < 10000; j++) x = x+i;
+        (*pnum_times)++;
     }
 }
 
