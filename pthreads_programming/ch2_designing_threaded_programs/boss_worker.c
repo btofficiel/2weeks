@@ -27,7 +27,8 @@ Thread ID: 6135132160 performing Sub operation: 5 - 5 = 0
 #include <stdbool.h>
 #include <pthread.h>
 #include <stdlib.h>
-#define NUM_WORKERS 8
+#include <unistd.h>
+#define NUM_WORKERS 7
 
 pthread_mutex_t tq_lock=PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t tq_not_empty=PTHREAD_COND_INITIALIZER;
@@ -67,7 +68,8 @@ void add_task(TaskQueue *tq, Task *t);
 Task* pop_task(TaskQueue *tq);
 bool empty(TaskQueue *tq);
 Task *create_task(Action action, int arg1, int arg2);
-void worker(TaskQueue *);
+void worker(TaskQueue *tq);
+void boss(TaskQueue *tq);
 // Returns a function pointer
 void (*get_fn(Action action))(int, int) {
     switch(action) {
@@ -83,27 +85,20 @@ void (*get_fn(Action action))(int, int) {
 }
 
 int main() {
-    pthread_t boss;
+    pthread_t boss_thread;
     pthread_t workers[NUM_WORKERS];
     TaskQueue *tq = (TaskQueue *) malloc(sizeof(TaskQueue));
     initialise_task_queue(tq);
 
-    for(int i=0;i<1000;i++) {
-        Task *addTask = create_task(ADD, 5, 5);
-        Task *subTask = create_task(SUB, 5, 5);
-        Task *mulTask = create_task(MUL, 5, 5);
-        Task *divTask = create_task(DIV, 5, 5);
-        //Add tasks to the task queue
-        add_task(tq, addTask);
-        add_task(tq, subTask);
-        add_task(tq, mulTask);
-        add_task(tq, divTask);
-    }
 
     // Creating a threadpool
     for(int i=0; i<NUM_WORKERS;i++) {
         pthread_create(&workers[i], NULL, (void *) worker, (void *) tq);
     }
+
+    pthread_create(&boss_thread, NULL, (void *) boss, (void *) tq);
+
+    pthread_join(boss_thread, NULL);
 
     for(int i=0; i<NUM_WORKERS;i++) {
         pthread_join(workers[i], NULL);
@@ -172,6 +167,24 @@ void worker(TaskQueue *tq) {
         t->function(t->fn_args.arg1, t->fn_args.arg2);
         free(t);
         t = NULL;
+    }
+}
+
+void boss(TaskQueue *tq) {
+    while(1) {
+        for(int i=0;i<1000;i++) {
+            Task *addTask = create_task(ADD, 5, 5);
+            Task *subTask = create_task(SUB, 5, 5);
+            Task *mulTask = create_task(MUL, 5, 5);
+            Task *divTask = create_task(DIV, 5, 5);
+            //Add tasks to the task queue
+            add_task(tq, addTask);
+            pthread_cond_signal(&tq_not_empty);
+            add_task(tq, subTask);
+            add_task(tq, mulTask);
+            add_task(tq, divTask);
+        }
+        sleep(1);
     }
 }
 
