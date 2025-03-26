@@ -1,0 +1,39 @@
+------------------------------
+Dynamic Memory allocation in C
+------------------------------
+ -> Use a malloc type fucntion to allocate memory.
+ -> Use this memory to support the application.
+ -> Deallocate the memory using free function.
+ 
+
+ // When memory is allocated, additional information is stored in a data structure which contains block size and other data.
+
+ xxxxxxxxxxxxxxxxxxxx
+ xxxxxxxxxxxxxxxxxxxx
+
+------------
+Memory leaks
+------------
+-> The memory's address is lost.
+-> The free fucntion is never invoked though it should be (sometimes called a hidden leak).
+
+xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx
+
+-----------------------------------
+Dynamic Memory Allocation Functions
+-----------------------------------
+
+| malloc | -> Allocates memory from heap
+| realloc | -> Reallocates memory to a larger or smaller amount based on a previously allocated block of memory
+| calloc | -> Allocates and zeros out memory from the heap
+| free | -> Returns a block of memory to the heap
+
+xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx
+
+----------------
+Dangling Pointer
+----------------
+
+// A pointer which references the original memory even after it has been freed.
