@@ -1,3 +1,9 @@
+/* Expected output
+------Logger initialised------
+Thread ID: 1 logging...
+Thread ID: 2 logging...
+Thread ID: 3 logging...
+*/
 #include <stdio.h>
 #include <pthread.h>
 
