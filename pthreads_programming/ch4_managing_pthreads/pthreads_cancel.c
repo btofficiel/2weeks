@@ -79,7 +79,7 @@ void bullet_proof(){
     pthread_cond_signal(&init_done);
 
     for(;;i++) {
-        if(i%1000000000==0) {
+        if(i%10000000000==0) {
             printf("bullet_proof(): You can't cancel me...\n");
         }
     }
@@ -97,7 +97,7 @@ void sitting_duck(){
     pthread_cond_signal(&init_done);
 
     for(;;i++) {
-        if (i%1000000==0) {
+        if (i%10000000000==0) {
             pthread_setcanceltype(PTHREAD_CANCEL_DEFERRED, NULL);
             printf("sitting_duck(): You can't cancel here\n");
             pthread_setcanceltype(PTHREAD_CANCEL_ASYNCHRONOUS, NULL);
