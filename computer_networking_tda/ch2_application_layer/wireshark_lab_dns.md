@@ -69,10 +69,12 @@
             
      ```
      
-11. Yes, ipv6 -> 2405:201:a40e:4052::c0a8:1d01
-12. Standard query of NS type. Yes
-13. 8
-14. 
+11. ![image](https://github.com/user-attachments/assets/5dbbd60c-a1bc-4afd-9103-622b8213750f)
+
+12. Yes, ipv6 -> 2405:201:a40e:4052::c0a8:1d01
+13. Standard query of NS type. Yes
+14. 8
+15. 
     ```
     
     Answers
@@ -134,4 +136,7 @@
         Name Server: use5.akam.net
         
     ```
+
+16. <img width="779" alt="image" src="https://github.com/user-attachments/assets/22fa614b-038e-48c6-abea-41eebc3ed896" />
+
    
