@@ -21,13 +21,11 @@ while True:
         formatted_date = utc_datetime.strftime("%a, %d %b %Y %H:%M:%S GMT")
         contents = f.read()
         outputdata = f'HTTP/1.1 200 OK\r\nDate: {formatted_date}\r\nContent-Length: {size_bytes}\r\nContent-Type: text/html; charset=UTF-8\r\nConnection: close\r\n\r\n{contents}\r\n\r\n'
-        for i in range(0, len(outputdata)):
-            connectionSocket.send(outputdata[i].encode())
+        connectionSocket.sendall(outputdata.encode())
         connectionSocket.close()
     except IOError as err:
         error_resp = f'HTTP/1.1 400 Not Found\r\n\r\n'
-        for i in range(0, len(error_resp)):
-            connectionSocket.send(error_resp[i].encode())
+        connectionSocket.sendall(error_resp.encode())
         connectionSocket.close()
 serverSocket.close()
 sys.exit()#Terminate the program after sending the corresponding data
