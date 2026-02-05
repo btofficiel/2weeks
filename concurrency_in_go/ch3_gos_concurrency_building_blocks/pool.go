@@ -3,13 +3,14 @@ package main
 import (
 	"fmt"
 	"sync"
+	"sync/atomic"
 )
 
 func main() {
-	var numCalcsCreated int
+	var numCalcsCreated atomic.Int64
 	pool := &sync.Pool{
 		New: func() interface{} {
-			numCalcsCreated++
+			numCalcsCreated.Add(1)
 			mem := make([]byte, 1024)
 			return &mem
 		},
@@ -34,5 +35,5 @@ func main() {
 	}
 
 	wg.Wait()
-	fmt.Printf("%d calculators were created", numCalcsCreated)
+	fmt.Printf("%d calculators were created", numCalcsCreated.Load())
 }
