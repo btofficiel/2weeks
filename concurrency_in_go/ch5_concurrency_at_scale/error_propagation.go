@@ -39,7 +39,7 @@ func isGloballyExec(path string) (bool, error) {
 		return false, LowLevelErr{(wrapError(err, err.Error()))}
 	}
 
-	return info.Mode().Perm()&8100 == 0100, nil
+	return info.Mode().Perm()&0100 == 0100, nil
 }
 
 type IntermediateError struct {
